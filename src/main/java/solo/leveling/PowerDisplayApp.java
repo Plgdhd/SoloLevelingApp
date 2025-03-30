@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 public class PowerDisplayApp extends JPanel {
-    private double[] values = {20, 20, 20, 20, 20, 20}; 
-    private final String[] labels = {"Physical", "Algorithms", "Java", "DevOps", "Frontend", "Mindset"};
+    private double[] values = { 20, 20, 20, 20, 20, 20 };
+    private final String[] labels = { "Physical", "Algorithms", "Java", "DevOps", "Frontend", "Mindset" };
     private static final String FILE_NAME = "stats.txt";
 
     public PowerDisplayApp() {
@@ -26,11 +26,16 @@ public class PowerDisplayApp extends JPanel {
             avg += v;
         }
         avg /= values.length;
-        if (avg >= 90) return "S";
-        if (avg >= 75) return "A";
-        if (avg >= 60) return "B";
-        if (avg >= 40) return "C";
-        if (avg >= 20) return "D";
+        if (avg >= 90)
+            return "S";
+        if (avg >= 75)
+            return "A";
+        if (avg >= 60)
+            return "B";
+        if (avg >= 40)
+            return "C";
+        if (avg >= 20)
+            return "D";
         return "E";
     }
 
@@ -63,7 +68,7 @@ public class PowerDisplayApp extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        
+
         int centerX = getWidth() / 2;
         int centerY = getHeight() / 2;
         int radius = Math.min(getWidth(), getHeight()) / 3;
@@ -87,9 +92,9 @@ public class PowerDisplayApp extends JPanel {
         g2.fillPolygon(polygon);
         g2.setColor(Color.BLACK);
         g2.drawPolygon(polygon);
-        
+
         g2.setFont(new Font("Arial", Font.BOLD, 16));
-        g2.drawString("Your current stats: ", centerX - 40, centerY-200);
+        g2.drawString("Your current stats: ", centerX - 40, centerY - 200);
         g2.drawString("Rank: " + getRank(), centerX - 30, centerY + radius + 70);
     }
 
@@ -123,12 +128,17 @@ public class PowerDisplayApp extends JPanel {
         JMenu helpMenu = new JMenu("?");
         JMenuItem infoItem = new JMenuItem("Info");
         infoItem.addActionListener(e -> JOptionPane.showMessageDialog(frame,
-            "Physical - тренировки, зарядка, спорт\n (100 отжиманий и подобное- 0.5 очка, силовая тренировка в зале + 1 очко)" +
-            "Algorithms - решение задач на алгоритмы или изучение их\n (1 час изучения: 0.5 очка, одна задача на leetcode + 1 очко)" +
-            "Java - практика и изучение языка\n (2 часа изучения + 0.5, 3 часа работы над каким либо проектом + 0.5)" +
-            "DevOps - работа с CI/CD, Docker, Kubernetes\n (2 часа изучения + 0.5 очка)" +
-            "Frontend - верстка, JS, React и др.\n (2 часа изучения + 0.5 очка, 3 часа работы на каким либо проектом + 0.5 очка)" +
-            "Mindset - прочитайте или посмотрите 20 страниц/20 минут полезной информации + 0.5 очка" ));
+  "Physical - workouts, exercise, sports\n" +
+                    "(100 push-ups and similar - 0.5 points, strength training in the gym + 1 point)\n\n" +
+                    "Algorithms - solving algorithm problems or studying them\n" +
+                    "(1 hour of studying: 0.5 points, one problem on LeetCode + 1 point)\n\n" +
+                    "Java - practicing and learning the language\n" +
+                    "(2 hours of study + 0.5, 3 hours of working on any project + 0.5)\n\n" +
+                    "DevOps - working with CI/CD, Docker, Kubernetes\n" +
+                    "(2 hours of study + 0.5 points)\n\n" +
+                    "Frontend - layout, JS, React, etc.\n" +
+                    "(2 hours of study + 0.5 points, 3 hours of working on any project + 0.5 points)\n\n" +
+                    "Mindset - read or watch 20 pages/20 minutes of useful information + 0.5 points" ));
         helpMenu.add(infoItem);
         menuBar.add(helpMenu);
         frame.setJMenuBar(menuBar);
