@@ -1,0 +1,15 @@
+
+*.log
+*.tmp
+*.swp
+node_modules/
+.idea/
+.vscode/
+*.env
+build/
+out/
+src/*
+!src/PowerDisplayApp.java
+target/*
+SoloLeveling.jar
+stats.txt
