@@ -1,4 +1,3 @@
-
 *.log
 *.tmp
 *.swp
@@ -9,6 +8,7 @@ node_modules/
 build/
 out/
 src/*
+
 !src/PowerDisplayApp.java
 target/*
 SoloLeveling.jar
